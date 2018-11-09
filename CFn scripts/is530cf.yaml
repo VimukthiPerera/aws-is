@@ -796,6 +796,33 @@ Outputs:
           - DNSName
         - '/carbon'
     Description: Identity Server Management Console URL
+  CarbonServerUrl:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2ISLoadBalancer
+          - DNSName
+        - '/services'
+    Description: Carbon Server URL
+  ISHttpUrl:
+    Value: !Join
+      - ''
+      - - 'http://'
+        - !GetAtt
+          - WSO2ISLoadBalancer
+          - DNSName
+        - ':80'
+    Description: IS HTTP Gateway endpoint
+  ISHttpsUrl:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2ISLoadBalancer
+          - DNSName
+        - ':443'
+    Description: IS HTTPS Gateway endpoint
 Parameters:
   AWSAccessKeyId:
     Type: String
